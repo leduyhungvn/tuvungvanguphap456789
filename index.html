@@ -242,93 +242,83 @@
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Mặc định 2 cột (Desktop) */
-            gap: 10px; /* Giảm gap */
-            margin-bottom: 15px;
+            gap: 5px; /* CHỈNH SỬA: Giảm gap từ 10px xuống 5px để tối ưu không gian */
+            margin-bottom: 10px; /* Giảm margin dưới cùng */
         }
 
-        /* Responsive cho Mobile - CÀI ĐẶT MỚI */
+        /* Responsive cho Mobile */
         @media (max-width: 480px) {
-            .header h1 { font-size: 18px; margin-bottom: 5px; }
-            .header h2 { font-size: 16px; margin-bottom: 5px; }
-
-            /* Giảm padding toàn màn hình kết quả để tiết kiệm không gian */
-            .result-screen {
-                padding: 8px !important; 
-            }
-
-            /* --- CHỈNH SỬA: GIỮ MẠC ĐỊNH 1 CỘT ĐỂ BIỂU ĐỒ KHÔNG BỊ BÉ, NHƯNG THU HẸP KHOẢNG CÁCH --- */
-            .dashboard-grid { 
-                grid-template-columns: 1fr; 
-                gap: 5px; /* Gap rất nhỏ giữa 2 ô lớn */
-                margin-bottom: 8px;
-            }
-
-            /* Giảm padding bên trong thẻ chứa biểu đồ */
-            .main-result-card { 
-                padding: 8px 5px; 
-                margin-bottom: 0;
-            }
-
-            /* Giảm khoảng cách tiêu đề và tên */
-            .result-user-name { font-size: 24px; margin-bottom: 2px; }
+            .header h1 { font-size: 18px; }
+            .header h2 { font-size: 16px; }
             
-            /* Giảm khoảng cách bao quanh biểu đồ tròn */
+            /* --- CHỈNH SỬA: Giảm spacing trên header của màn hình kết quả để tối ưu chiều cao --- */
+            .result-screen .header h1 { font-size: 18px; margin-bottom: 2px; }
+            .result-screen .header h2 { font-size: 14px; margin-bottom: 5px; }
+
+            /* --- GIỮ NGUYÊN 1 CỘT TRÊN MOBILE --- */
+            .dashboard-grid { 
+                grid-template-columns: 1fr; /* Chỉ còn 1 cột */
+                gap: 8px; /* CHỈNH SỬA: Giảm gap từ 15px xuống 8px */
+            }
+
+            /* --- GIỮ NGUYÊN KÍCH THƯỚC BIỂU ĐỒ TRÊN MOBILE --- */
             .chart-container-wrapper {
-                width: 175px !important; /* Kích thước lớn nhưng gọn hơn 200px để vừa màn hình */
-                height: 175px !important;
-                margin: 2px 0; /* Margin cực nhỏ */
+                width: 200px !important; 
+                height: 200px !important;
+                margin: 5px 0; /* CHỈNH SỬA: Giảm margin từ 10px xuống 5px */
             }
 
             .circular-chart { width: 100%; height: 100%; }
             
-            /* Tăng kích thước chữ % vừa đủ để đọc */
-            .percentage-text { font-size: 0.5em !important; } 
+            /* --- TĂNG FONT SIZE PHẦN TRĂM (Đã có ở code cũ, giữ nguyên) --- */
+            .percentage-text { 
+                font-size: 0.6em !important; 
+            } 
 
-            /* Giảm padding và gap của thẻ Stats Grid */
+            /* --- CHỈNH SỬA: Giảm padding và margin trong thẻ kết quả chính --- */
+            .main-result-card { padding: 8px; } /* Giảm từ 15px xuống 8px */
+            .result-user-name { font-size: 24px; margin-bottom: 2px; } /* Giảm font và margin */
+            
+            /* --- CHỈNH SỬA: Giảm padding và khoảng cách trong thẻ thống kê --- */
             .stats-grid-card {
-                padding: 5px;
-                gap: 4px; /* Giảm gap giữa các ô nhỏ */
+                padding: 8px; /* Giảm từ 15px xuống 8px */
+                gap: 4px; /* Giảm từ 10px xuống 4px */
             }
             
-            /* Thiết lập chiều cao tối thiểu cho các ô nhỏ để chúng không dư thừa chiều cao */
             .mini-stat-card {
-                padding: 2px;
-                flex-direction: row; /* Ngang để tiết kiệm chiều dọc */
-                justify-content: space-between;
-                align-items: center;
-                min-height: 50px; /* Ép ô nhỏ thấp lại */
-                gap: 5px;
+                padding: 4px; /* Giảm từ 10px xuống 4px */
+                flex-direction: row; 
+                justify-content: flex-start;
+                gap: 8px;
             }
-            .mini-stat-icon { width: 24px; height: 24px; margin-bottom: 0; margin-right: 5px;}
-            .mini-stat-label { font-size: 10px; margin-bottom: 0; text-align: left; min-width: 45px;} 
-            .mini-stat-value { font-size: 16px; text-align: right;} 
-            .mini-stat-sub { display: none; /* Ẩn dòng phụ trên mobile để tiết kiệm chỗ */ }
+            .mini-stat-icon { width: 28px; height: 28px; margin-bottom: 0; }
+            .mini-stat-label { font-size: 10px; margin-bottom: 0; min-width: 45px; text-align: left; } 
+            .mini-stat-value { font-size: 16px; text-align: left; } 
+            .mini-stat-sub { font-size: 9px; text-align: left; display: block; }
             
             .score-mini-text { font-size: 12px; font-weight: bold; }
             .score-mini-num { font-size: 1.1em; }
             
-            /* Giảm khoảng cách ngày tháng */
-            .result-date-display { font-size: 11px; padding: 2px 8px; margin-top: 2px; }
+            /* --- CHỈNH SỬA: Giảm margin hiển thị ngày tháng --- */
+            .result-date-display { font-size: 11px; padding: 3px 10px; margin-top: 5px; } /* Giảm padding và margin */
             
-            /* Giảm padding các bảng */
+            /* Giảm padding các bảng trên mobile */
             .answer-history th, .answer-history td { padding: 4px; font-size: 11px; }
             .wrong-questions-list li { font-size: 12px; padding: 4px; }
             
             /* Nút bấm kết quả */
             .result-buttons { gap: 8px; margin-top: 10px; }
             .result-buttons button { font-size: 14px; padding: 8px; }
-            
-            /* Tiêu đề mục con thu gọn margin */
-            .result-section-title { margin-top: 10px; margin-bottom: 5px; }
-        }
 
-        /* Nếu màn hình cực nhỏ (dưới 360px), giữ nguyên 1 cột (đã set ở trên) */
+            /* --- CHỈNH SỬA: Giảm khoảng cách tiêu đề phần chi tiết --- */
+            .result-section-title { margin-top: 8px; margin-bottom: 4px; padding-left: 5px; }
+        }
 
         .main-result-card {
             background: #fff;
             border: 1px solid #eee;
             border-radius: 12px;
-            padding: 15px; /* Giảm padding */
+            padding: 10px; /* CHỈNH SỬA: Giảm padding từ 15px xuống 10px */
             box-shadow: var(--card-shadow);
             display: flex;
             flex-direction: column;
@@ -339,11 +329,11 @@
         }
         .main-result-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
-        .result-user-name { font-size: 32px; font-weight: 800; margin-bottom: 5px; text-transform: capitalize; }
+        .result-user-name { font-size: 28px; font-weight: 800; margin-bottom: 5px; text-transform: capitalize; }
 
         .chart-container-wrapper {
             position: relative;
-            width: 160px; /* Mặc định Desktop */
+            width: 160px; /* Mặc định Desktop - GIỮ NGUYÊN */
             height: 160px;
             margin: 10px 0;
             display: flex;
@@ -360,7 +350,7 @@
         
         .score-mini-info {
             position: absolute;
-            top: 65%; /* Dịch chuyển xuống dưới chút khi mobile phóng to */
+            top: 65%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -383,12 +373,12 @@
             background: #fff;
             border: 1px solid #eee;
             border-radius: 12px;
-            padding: 15px; /* Giảm padding */
+            padding: 10px; /* CHỈNH SỬA: Giảm padding từ 15px xuống 10px */
             box-shadow: var(--card-shadow);
             display: grid;
             grid-template-columns: 1fr 1fr; 
             grid-template-rows: 1fr 1fr;
-            gap: 10px; /* Giảm gap */
+            gap: 8px; /* CHỈNH SỬA: Giảm gap từ 10px xuống 8px */
         }
 
         .mini-stat-card {
@@ -397,7 +387,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 8px; /* Giảm padding */
+            padding: 6px; /* CHỈNH SỬA: Giảm padding từ 8px xuống 6px */
             border-radius: 8px;
             background-color: #fcfcfc;
             border: 1px solid #f0f0f0;
@@ -405,7 +395,7 @@
 
         .mini-stat-icon { width: 32px; height: 32px; margin-bottom: 4px; } 
         .mini-stat-label { font-size: 11px; text-transform: uppercase; color: #999; margin-bottom: 2px; } 
-        .mini-stat-value { font-size: 20px; font-weight: 700; color: var(--secondary-color); } 
+        .mini-stat-value { font-size: 18px; font-weight: 700; color: var(--secondary-color); } 
         .mini-stat-sub { font-size: 10px; color: #aaa; } 
 
         .mini-stat-card.time-start .mini-stat-icon { fill: var(--info-color); }
@@ -420,8 +410,8 @@
             background-color: #ffebee;
             border: 2px solid #f44336;
             border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 8px; /* CHỈNH SỬA: Giảm padding từ 10px xuống 8px */
+            margin-bottom: 8px; /* CHỈNH SỬA: Giảm margin từ 15px xuống 8px */
             text-align: center;
             color: #d32f2f;
             display: none; /* Hidden by default */
@@ -430,15 +420,15 @@
         }
 
         .cheating-alert h3 {
-            margin: 0 0 5px 0;
-            font-size: 16px;
+            margin: 0 0 4px 0; /* CHỈNH SỬA: Giảm margin */
+            font-size: 14px;
             text-transform: uppercase;
             font-weight: 900;
         }
 
         .cheating-alert p {
             margin: 0;
-            font-size: 13px;
+            font-size: 12px; /* CHỈNH SỬA: Giảm font size */
             font-weight: 600;
         }
 
@@ -449,15 +439,15 @@
         }
 
         /* --- List/History Styles --- */
-        .result-section-title { margin-top: 15px; margin-bottom: 8px; color: var(--secondary-color); font-size: 16px; border-left: 4px solid var(--primary-color); padding-left: 8px; }
+        .result-section-title { margin-top: 10px; margin-bottom: 6px; color: var(--secondary-color); font-size: 16px; border-left: 4px solid var(--primary-color); padding-left: 8px; }
         .wrong-questions-list { list-style-type: none; padding: 0; margin-top: 5px; }
-        .wrong-questions-list li { background-color: #fff5f5; border-left: 3px solid var(--error-color); padding: 8px; margin-bottom: 5px; font-size: 13px; color: #555; }
+        .wrong-questions-list li { background-color: #fff5f5; border-left: 3px solid var(--error-color); padding: 6px; margin-bottom: 4px; font-size: 13px; color: #555; }
         
-        .answer-history { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; background: #fff; }
-        .answer-history th, .answer-history td { border: 1px solid #ddd; padding: 8px; text-align: left; word-wrap: break-word; }
+        .answer-history { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; background: #fff; }
+        .answer-history th, .answer-history td { border: 1px solid #ddd; padding: 6px; text-align: left; word-wrap: break-word; }
         .answer-history th { background-color: #f2f2f2; font-weight: 600; color: var(--secondary-color); }
         .answer-history tr:nth-child(even) { background-color: #f9f9f9; }
-        .result-buttons { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .result-buttons { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
         .result-buttons button { flex: 1; min-width: 100px; }
         .hidden { display: none !important; }
         
@@ -2120,13 +2110,20 @@
             const percentageText = document.getElementById('score-percentage-text');
             percentageText.style.fill = scoreColor;
 
-            const startOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+            // --- CHỈNH SỬA: THÊM GIÂY VÀO ĐỊNH DẠNG GIỜ ---
+            const startOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
             const startDateOptions = { day: '2-digit', month: '2-digit' };
+            
             document.getElementById('result-start-time').textContent = startTime.toLocaleTimeString('vi-VN', startOptions);
             document.getElementById('result-start-date').textContent = startTime.toLocaleDateString('vi-VN', startDateOptions);
 
-            document.getElementById('result-end-time').textContent = endTime.toLocaleTimeString('vi-VN', startOptions);
-            document.getElementById('result-end-date').textContent = endTime.toLocaleDateString('vi-VN', startDateOptions);
+            // --- CHỈNH SỬA: THÊM GIÂY VÀO ĐỊNH DẠNG GIỜ ---
+            const endOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            const endDateOptions = { day: '2-digit', month: '2-digit' };
+            
+            document.getElementById('result-end-time').textContent = endTime.toLocaleTimeString('vi-VN', endOptions);
+            document.getElementById('result-end-date').textContent = endTime.toLocaleDateString('vi-VN', endDateOptions);
+            // ---------------------------------------------
 
             document.getElementById('result-max-streak').textContent = maxStreak;
             document.getElementById('result-total-time').textContent = `${totalTime.toFixed(1)}s`;
