@@ -241,7 +241,7 @@
         /* --- RESULT SCREEN DASHBOARD --- */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Mặc định 2 cột */
+            grid-template-columns: 1fr 1fr; /* Mặc định 2 cột (Desktop) */
             gap: 10px; /* Giảm gap */
             margin-bottom: 15px;
         }
@@ -251,40 +251,48 @@
             .header h1 { font-size: 18px; }
             .header h2 { font-size: 16px; }
             
-            /* Giữ 2 cột nhưng thu nhỏ nội dung để vừa màn hình */
+            /* --- CHỈNH SỬA 1: CHUYỂN SANG 1 CỘT TRÊN MOBILE --- */
             .dashboard-grid { 
-                grid-template-columns: 1fr 1fr; 
-                gap: 8px;
+                grid-template-columns: 1fr; /* Chỉ còn 1 cột */
+                gap: 15px;
             }
 
-            /* Thu nhỏ biểu đồ tròn */
+            /* --- CHỈNH SỬA 1: TĂNG KÍCH THƯỚC BIỂU ĐỒ TRÊN MOBILE --- */
             .chart-container-wrapper {
-                width: 100px !important; /* Rõ ràng thu nhỏ */
-                height: 100px !important;
-                margin: 5px 0;
+                width: 200px !important; /* Tăng từ 100px lên 200px */
+                height: 200px !important;
+                margin: 10px 0;
             }
 
             .circular-chart { width: 100%; height: 100%; }
-            .percentage-text { font-size: 0.4em !important; } /* Tỷ lệ font nhỏ lại */
+            
+            /* --- CHỈNH SỬA 2: TĂNG FONT SIZE PHẦN TRĂM TRÊN MOBILE --- */
+            .percentage-text { 
+                font-size: 0.6em !important; /* Tăng từ 0.4em lên 0.6em (~tăng 50% để đảm bảo dễ đọc) */
+            } 
 
-            .main-result-card { padding: 10px; }
-            .result-user-name { font-size: 24px; margin-bottom: 0; }
+            .main-result-card { padding: 15px; } /* Tăng padding chút để ô to hơn */
+            .result-user-name { font-size: 28px; margin-bottom: 5px; }
             
             .stats-grid-card {
-                padding: 8px;
-                gap: 5px; /* Giảm khoảng cách giữa các ô nhỏ */
+                padding: 12px;
+                gap: 8px; 
             }
             
             .mini-stat-card {
-                padding: 5px;
+                padding: 10px;
+                flex-direction: row; /* Đổi icon và chữ sang hàng ngang gọn hơn */
+                justify-content: flex-start;
+                gap: 10px;
             }
-            .mini-stat-icon { width: 24px; height: 24px; margin-bottom: 2px; }
-            .mini-stat-label { font-size: 10px; }
-            .mini-stat-value { font-size: 16px; }
-            .mini-stat-sub { font-size: 9px; }
+            .mini-stat-icon { width: 32px; height: 32px; margin-bottom: 0; }
+            .mini-stat-label { font-size: 11px; margin-bottom: 0; min-width: 50px; text-align: left; } 
+            .mini-stat-value { font-size: 18px; text-align: left; } 
+            .mini-stat-sub { font-size: 10px; text-align: left; display: block; }
             
-            .score-mini-text { font-size: 10px; }
-            .result-date-display { font-size: 11px; padding: 3px 8px; margin-top: 5px; }
+            .score-mini-text { font-size: 14px; font-weight: bold; }
+            .score-mini-num { font-size: 1.1em; }
+            .result-date-display { font-size: 12px; padding: 5px 12px; margin-top: 10px; }
             
             /* Giảm padding các bảng trên mobile */
             .answer-history th, .answer-history td { padding: 5px; font-size: 11px; }
@@ -295,11 +303,7 @@
             .result-buttons button { font-size: 14px; padding: 10px; }
         }
 
-        /* Nếu màn hình cực nhỏ (dưới 360px), chuyển thành 1 cột cho chắc chắn */
-        @media (max-width: 360px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .chart-container-wrapper { margin: 0 auto; } /* Căn giữa nếu 1 cột */
-        }
+        /* Nếu màn hình cực nhỏ (dưới 360px), giữ nguyên 1 cột (đã set ở trên) */
 
         .main-result-card {
             background: #fff;
@@ -320,7 +324,7 @@
 
         .chart-container-wrapper {
             position: relative;
-            width: 160px; /* Thu nhỏ so với bản gốc (220px) */
+            width: 160px; /* Mặc định Desktop */
             height: 160px;
             margin: 10px 0;
             display: flex;
@@ -337,7 +341,7 @@
         
         .score-mini-info {
             position: absolute;
-            top: 60%;
+            top: 65%; /* Dịch chuyển xuống dưới chút khi mobile phóng to */
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -734,7 +738,10 @@
                         </svg>
                         
                         <div class="score-mini-info">
-                            <span class="score-mini-text">Đúng <span id="result-score-correct" class="score-mini-num">0</span> / <span id="result-score-total" class="score-mini-num">0</span></span>
+                            <!-- CHỈNH SỬA 3: XÓA CHỮ "ĐÚNG", CHỈ GIỮ LẠI SỐ -->
+                            <span class="score-mini-text">
+                                <span id="result-score-correct" class="score-mini-num">0</span> / <span id="result-score-total" class="score-mini-num">0</span>
+                            </span>
                         </div>
                     </div>
                     
