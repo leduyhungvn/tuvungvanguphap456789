@@ -490,22 +490,35 @@
             .main-result-card { padding: 8px !important; }
             .result-user-name { font-size: 24px !important; margin-bottom: 2px; }
             
-            /* --- GIỮ NGUYÊN KÍCH THƯỚC STATS TRÊN MOBILE --- */
+            /* --- GIỮ NGUYÊN PADDING CHA --- */
             .stats-grid-card {
                 padding: 8px !important; 
-                gap: 4px !important; 
+                gap: 5px !important; 
             }
             
+            /* --- CHỈNH SỬA LỖI MOBILE: TRỞ LẠI HIỂN THỊ DỌC (COLUMN) --- */
             .mini-stat-card {
-                padding: 4px !important; 
-                flex-direction: row; 
-                justify-content: flex-start;
-                gap: 8px;
+                padding: 6px !important; 
+                flex-direction: column !important; /* Quan trọng: Dùng layout dọc để tránh bị ép ngang */
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 2px;
             }
-            .mini-stat-icon { width: 28px !important; height: 28px !important; margin-bottom: 0; }
-            .mini-stat-label { font-size: 10px !important; margin-bottom: 0; min-width: 45px; text-align: left; } 
-            .mini-stat-value { font-size: 16px !important; text-align: left; } 
-            .mini-stat-sub { font-size: 9px; text-align: left; display: block; }
+            .mini-stat-icon { width: 28px !important; height: 28px !important; margin-bottom: 2px; }
+            .mini-stat-label { 
+                font-size: 10px !important; 
+                margin-bottom: 0; 
+                text-align: center !important; /* Căn giữa khi hiển thị dọc */
+            } 
+            .mini-stat-value { 
+                font-size: 16px !important; 
+                text-align: center !important; /* Căn giữa khi hiển thị dọc */
+            } 
+            .mini-stat-sub { 
+                font-size: 9px; 
+                text-align: center !important; /* Căn giữa khi hiển thị dọc */
+                display: block; 
+            }
             
             .score-mini-text { font-size: 12px !important; font-weight: bold; }
             .score-mini-num { font-size: 1.1em; }
@@ -998,7 +1011,7 @@
             { id: 2, word: "She _____ my friend.", correct: "is", wrong1: "am", wrong2: "are", wrong3: "be" },
             { id: 3, word: "They _____ teachers.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
             { id: 4, word: "He _____ happy.", correct: "is", wrong1: "am", wrong2: "are", wrong3: "be" },
-            { id: 5, word: "We _____ in the classroom.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
+            { id: 5, word: "We _____ in classroom.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
             { id: 6, word: "It _____ a cat.", correct: "is", wrong1: "am", wrong2: "are", wrong3: "be" },
             { id: 7, word: "You _____ late.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
             { id: 8, word: "My mother _____ at home.", correct: "is", wrong1: "am", wrong2: "are", wrong3: "be" },
@@ -1014,7 +1027,7 @@
             { id: 18, word: "That _____ a pen.", correct: "is", wrong1: "am", wrong2: "are", wrong3: "be" },
             { id: 19, word: "These _____ apples.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
             { id: 20, word: "Those _____ chairs.", correct: "are", wrong1: "am", wrong2: "is", wrong3: "be" },
-            { id: 21, word: "There _____ a table in the room.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
+            { id: 21, word: "There _____ a table in room.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
             { id: 22, word: "There _____ two chairs there.", correct: "are", wrong1: "is", wrong2: "am", wrong3: "be" },
             { id: 23, word: "_____ there a lamp?", correct: "Is", wrong1: "Are", wrong2: "Am", wrong3: "Do" },
             { id: 24, word: "_____ there any books?", correct: "Are", wrong1: "Is", wrong2: "Am", wrong3: "Do" },
@@ -1048,9 +1061,9 @@
             { id: 52, word: "That car _____ red.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
             { id: 53, word: "Those houses _____ big.", correct: "are", wrong1: "is", wrong2: "am", wrong3: "be" },
             { id: 54, word: "This bag _____ heavy.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
-            { id: 55, word: "There _____ a ruler on the desk.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
+            { id: 55, word: "There _____ a ruler on desk.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
             { id: 56, word: "There _____ many students in class.", correct: "are", wrong1: "is", wrong2: "am", wrong3: "be" },
-            { id: 57, word: "There _____ some water in the glass.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
+            { id: 57, word: "There _____ some water in glass.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" },
             { id: 58, word: "_____ there any milk?", correct: "Is", wrong1: "Are", wrong2: "Am", wrong3: "Do" },
             { id: 59, word: "_____ there any eggs?", correct: "Are", wrong1: "Is", wrong2: "Am", wrong3: "Do" },
             { id: 60, word: "My sister _____ 10 years old.", correct: "is", wrong1: "are", wrong2: "am", wrong3: "be" }
